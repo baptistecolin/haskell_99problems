@@ -33,3 +33,7 @@ myReverse l = case l of
 				[] -> []
 				[a] -> [a]
 				(hd:tl) -> ((myReverse tl)++[hd])
+
+isPalindrome :: Eq a => [a] -> Bool
+
+isPalindrome l = (l == myReverse l)
