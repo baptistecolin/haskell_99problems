@@ -20,3 +20,9 @@ elementAt :: [a] -> Integer -> Maybe a
 elementAt (hd:_) 1 = Just hd
 elementAt [] i = Nothing
 elementAt (_:tl) i = elementAt tl (i-1)
+
+myLength :: [a] -> Integer
+
+myLength l = case l of
+				[] -> 0
+				(hd:tl) -> (1+ (myLength tl))
