@@ -37,3 +37,12 @@ myReverse l = case l of
 isPalindrome :: Eq a => [a] -> Bool
 
 isPalindrome l = (l == myReverse l)
+
+data NestedList a = Elem a | List [NestedList a]
+
+flatten :: NestedList a -> [a]
+
+flatten l = case l of
+				Elem a -> [a]
+				List [] -> []
+				List (hd:tl) -> (flatten hd)++(flatten (List tl))
