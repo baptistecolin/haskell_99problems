@@ -46,3 +46,10 @@ flatten l = case l of
 				Elem a -> [a]
 				List [] -> []
 				List (hd:tl) -> (flatten hd)++(flatten (List tl))
+
+compress :: Eq a => [a] -> [a]
+
+compress l = case l of
+				[] -> []
+				[a] -> [a]
+				(hd1:(hd2:tl)) -> if hd1==hd2 then compress (hd1:tl) else hd1:(compress (hd2:tl)) 
