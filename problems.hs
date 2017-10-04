@@ -26,3 +26,10 @@ myLength :: [a] -> Integer
 myLength l = case l of
 				[] -> 0
 				(hd:tl) -> (1+ (myLength tl))
+
+myReverse :: [a] -> [a]
+
+myReverse l = case l of
+				[] -> []
+				[a] -> [a]
+				(hd:tl) -> ((myReverse tl)++[hd])
