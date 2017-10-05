@@ -107,3 +107,12 @@ repli :: [a] -> Int -> [a]
 
 repli [] _ = []
 repli (hd:tl) n = (replicate n hd)++(repli tl n)
+
+--problem 16
+myDrop :: [a] -> Int -> [a]
+
+myDrop l n = drop_counter l (n-1) n
+	where
+		drop_counter [] i n = []
+		drop_counter (hd:tl) 0 n = drop_counter tl (n-1) n
+		drop_counter (hd:tl) i n = hd:(drop_counter tl (i-1) n)
