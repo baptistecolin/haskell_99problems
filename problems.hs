@@ -116,3 +116,10 @@ myDrop l n = drop_counter l (n-1) n
 		drop_counter [] i n = []
 		drop_counter (hd:tl) 0 n = drop_counter tl (n-1) n
 		drop_counter (hd:tl) i n = hd:(drop_counter tl (i-1) n)
+
+--problem 17
+split :: [a] -> Int -> ([a],[a])
+
+split [] n = ([], [])
+split l 0 = ([], l)
+split (hd:tl) n = let (a,b) = (split tl (n-1)) in (hd:a,b)
