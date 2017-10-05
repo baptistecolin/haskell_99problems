@@ -72,3 +72,11 @@ encodeModified = map encodeHelper . encode
 	where
 		encodeHelper (1,a) = Single a
 		encodeHelper (n,a) = Multiple n a
+
+decodeModified :: Eq a => [ListItem a] -> [a]
+
+decodeModified = concat . map decodeAux
+	where
+		decodeAux (Single x) = [x]
+		decodeAux (Multiple 2 x) = x:(decodeAux (Single x))
+		decodeAux (Multiple n x) = x:(decodeAux (Multiple (n-1) x))
