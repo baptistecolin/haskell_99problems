@@ -123,3 +123,12 @@ split :: [a] -> Int -> ([a],[a])
 split [] n = ([], [])
 split l 0 = ([], l)
 split (hd:tl) n = let (a,b) = (split tl (n-1)) in (hd:a,b)
+
+--problem 18
+slice :: [a] -> Int -> Int -> [a]
+
+slice [] i k = []
+slice l 0 0 = []
+slice (hd:tl) 0 k = hd:(slice tl 0 (k-1))
+slice (hd:tl) 1 k = hd:(slice tl 0 (k-1)) --necessary in order to keep the item at index i
+slice (hd:tl) i k = slice tl (i-1) (k-1)
