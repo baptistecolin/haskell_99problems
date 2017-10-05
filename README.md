@@ -2,3 +2,7 @@ This repo is my attempt at completing all 99 problems that can be found on [http
 
 All in Haskell !
 
+```bash
+> ghci
+> :l problems.hs
+```
