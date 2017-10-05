@@ -94,3 +94,9 @@ decodeModified = concat . map decodeAux
 		decodeAux (Multiple n x) = x:(decodeAux (Multiple (n-1) x))
 
 -- problem 13
+
+-- problem 14
+dupli :: [a] -> [a]
+
+dupli [] = []
+dupli (hd:tl) = hd:hd:(dupli tl)
