@@ -132,3 +132,10 @@ slice l 0 0 = []
 slice (hd:tl) 0 k = hd:(slice tl 0 (k-1))
 slice (hd:tl) 1 k = hd:(slice tl 0 (k-1)) --necessary in order to keep the item at index i
 slice (hd:tl) i k = slice tl (i-1) (k-1)
+
+--problem 19
+rotate :: [a] -> Int -> [a]
+
+rotate [] i = []
+rotate l 0 = l
+rotate (hd:tl) i = rotate (tl++[hd]) (i-1)
