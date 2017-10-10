@@ -139,3 +139,9 @@ rotate :: [a] -> Int -> [a]
 rotate [] i = []
 rotate l i = take (length l) (drop j (cycle l)) 
 	where j = mod i (length l)
+
+--problem 20
+remove_at :: Int -> [a] -> [a]
+
+remove_at 1 (hd:tl) = tl
+remove_at i (hd:tl) = hd:(remove_at (i-1) tl)
