@@ -152,3 +152,8 @@ insert_at :: Int -> a -> [a] -> [a]
 
 insert_at k a l = front ++ (a:back)
 	where (front, back) = splitAt (k-1) l
+
+--problem 22
+range :: Int -> Int -> [Int]
+
+range i j = drop i $ take (j+1) $ [0..]
