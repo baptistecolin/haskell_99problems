@@ -1,5 +1,6 @@
 import Data.List
 import Data.Maybe
+import System.Random
 
 -- problem 1
 myLast :: [a] -> Maybe a
@@ -157,3 +158,9 @@ insert_at k a l = front ++ (a:back)
 range :: Int -> Int -> [Int]
 
 range i j = drop i $ take (j+1) $ [0..]
+
+--problem 23
+--I admit I copied this one from the solutions
+rnd_select xs n = do
+    gen <- getStdGen
+    return $ take n [ xs !! x | x <- randomRs (0, (length xs) - 1) gen]
