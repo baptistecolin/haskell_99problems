@@ -143,5 +143,8 @@ rotate l i = take (length l) (drop j (cycle l))
 --problem 20
 remove_at :: Int -> [a] -> [a]
 
+remove_at i [] = error "remove_at : index too large"
 remove_at 1 (hd:tl) = tl
 remove_at i (hd:tl) = hd:(remove_at (i-1) tl)
+
+--problem 21
