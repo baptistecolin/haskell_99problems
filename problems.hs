@@ -137,5 +137,5 @@ slice (hd:tl) i k = slice tl (i-1) (k-1)
 rotate :: [a] -> Int -> [a]
 
 rotate [] i = []
-rotate l 0 = l
-rotate (hd:tl) i = rotate (tl++[hd]) (i-1)
+rotate l i = take (length l) (drop j (cycle l)) 
+	where j = mod i (length l)
