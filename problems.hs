@@ -119,11 +119,11 @@ myDrop l n = drop_counter l (n-1) n
 		drop_counter (hd:tl) i n = hd:(drop_counter tl (i-1) n)
 
 --problem 17
-split :: [a] -> Int -> ([a],[a])
+split2 :: [a] -> Int -> ([a],[a])
 
-split [] n = ([], [])
-split l 0 = ([], l)
-split (hd:tl) n = let (a,b) = (split tl (n-1)) in (hd:a,b)
+split2 [] n = ([], [])
+split2 l 0 = ([], l)
+split2 (hd:tl) n = let (a,b) = (split2 tl (n-1)) in (hd:a,b)
 
 --problem 18
 slice :: [a] -> Int -> Int -> [a]
@@ -161,6 +161,9 @@ range i j = drop i $ take (j+1) $ [0..]
 
 --problem 23
 --I admit I copied this one from the solutions
+rnd_select :: [a] -> Int -> IO [a]
+
 rnd_select xs n = do
     gen <- getStdGen
     return $ take n [ xs !! x | x <- randomRs (0, (length xs) - 1) gen]
+
