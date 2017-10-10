@@ -148,3 +148,7 @@ remove_at 1 (hd:tl) = tl
 remove_at i (hd:tl) = hd:(remove_at (i-1) tl)
 
 --problem 21
+insert_at :: Int -> a -> [a] -> [a]
+
+insert_at k a l = front ++ (a:back)
+	where (front, back) = splitAt (k-1) l
