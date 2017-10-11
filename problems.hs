@@ -167,3 +167,11 @@ rnd_select xs n = do
     gen <- getStdGen
     return $ take n [ xs !! x | x <- randomRs (0, (length xs) - 1) gen]
 
+--problem 24
+
+
+--problem 31
+isPrime :: Int -> Bool
+
+isPrime n = length dividers == 2
+	where dividers = [ k | k <- [1..n] , mod n k == 0 ]
