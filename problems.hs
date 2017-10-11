@@ -175,3 +175,12 @@ isPrime :: Int -> Bool
 
 isPrime n = length dividers == 2
 	where dividers = [ k | k <- [1..n] , mod n k == 0 ]
+
+--problem 32
+dividers :: Int -> [Int]
+
+dividers n = [ k | k <- [1..n] , mod n k == 0 ]
+
+coprime :: Int -> Int -> Bool
+
+coprime a b = length (intersect (dividers a) (dividers b)) == 1
